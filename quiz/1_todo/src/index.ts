@@ -1,6 +1,21 @@
 // let todoItems: object[];
+
+// type Todo = {
+//   id: number;
+//   title: string;
+//   done: boolean;
+// };
+
+interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
+}
+
+let todoItems: Todo[];
+
 // 객체 속성들의 구체적인 타입을 정의
-let todoItems: { id: number; title: string; done: boolean }[];
+// let todoItems: { id: number; title: string; done: boolean }[];
 
 // api
 function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
