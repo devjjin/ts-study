@@ -14,3 +14,5 @@ function add(): number {
 function sum(a: number, b: number): number {
 	return a + b;
 }
+sum(10, 20); // 30
+// sum(10, 20, 30, 40); // 에러: Expected 2 arguments, but got 4.ts 불필요한 인자 2개를 넣음 - ts의 장점
