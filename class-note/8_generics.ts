@@ -79,3 +79,17 @@ function logTextLength<T extends LengthType>(text: T): T {
 }
 // logTextLength(10);
 // logTextLength({ length: 10});
+
+interface ShoppingItem {
+    name: string;
+    price: number;
+    stock: number;
+}
+// 제네릭 타입 제한3 - keyof
+// ShoppingItem의 속성 중 하나의 타입이 제네릭으로 지정된다.
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+    return itemOption;
+}
+// getShoppingItemOption(10);  //Argument of type '10' is not assignable to parameter of type 'keyof ShoppingItem'
+// getShoppingItemOption<string>('a');
+getShoppingItemOption('name');  // 타입에서 정의된 키값만 들어갈 수 있다.
