@@ -43,3 +43,22 @@ interface StringArray {
 var arr: StringArray = ['a', 'b', 'c'];
 // arr[0] = 10; // Type 'number' is not assignable to type 'string'
 arr[0];
+
+// 딕서녀리 패턴
+interface StringRegexDictionary {
+    [key: string]: RegExp;
+}
+
+var obj: StringRegexDictionary = {
+    // sth: /abc/,
+    //cssFile: 'css'   // 속성 : 정규표현식이 와야하는데 문자열이 와서 에러남
+    cssFile: /\.css$/,  // .css 확장자로 끝나는 모든 파일들
+    jsFile: /\.js$/,
+}
+
+// obj['cssFile'] = 'a'; // 인터페이스 규칙에 어긋나서 regex로 접근해야함
+
+// 좋은점 - value의 타입 지정하지 않아도 string 타입으로 추론하여 안정성
+Object.keys(obj).forEach(function(value) {
+
+})
