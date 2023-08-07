@@ -1,3 +1,11 @@
+// 클래스를 babel로 돌려보면 생성자 함수를 사용했음을 알 수 있다.
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var jin = new Person('수진', 100);
+
 class Person {
     // 클래스 로직
     constructor(name, age) {
