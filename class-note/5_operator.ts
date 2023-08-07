@@ -19,3 +19,19 @@ function logMessage(value: string | number) {
 }
 logMessage('hello');
 logMessage(100);
+
+interface Developer { 
+    name: string;
+    skill: string;
+}
+
+interface Person {
+    name: string;
+    age: number;
+}
+function askSomeone(someone: Developer | Person) {
+    someone.name;   // union type은 공통된 속성만 접근 가능
+    // someone.skill;
+    // someone.age;
+}
+
