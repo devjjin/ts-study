@@ -30,15 +30,21 @@ interface Person {
     age: number;
 }
 function askSomeone(someone: Developer | Person) {
-    someone.name;   // union type은 공통된 속성만 접근 가능
+    // someone.name;   // union type은 공통된 속성만 접근 가능
     // someone.skill;
     // someone.age;
 }
 
+// union type 설정시 - Developer, Person 사용 가능
+askSomeone({ name: '디벨로퍼', skill: '웹 개발'});  // Developer
+askSomeone({ name: '수진', age: 100});  // Person
+
 // intersection type : 여러 타입을 모두 만족하는 하나의 타입
 function askSomeone2(someone: Developer & Person) {
-    someone.name;
-    someone.skill;
-    someone.age;
+    // someone.name;
+    // someone.skill;
+    // someone.age;
 }
+
+// askSomeone2({ name : '디벨로퍼', skill: '웹 개발'}); // 'age'가 들어간 속성도 넣어줘야해서 에러남
 
