@@ -25,11 +25,21 @@
 
 // logText<string>('하이'); // 함수 호출 시점에 인자 타입을 지정해서 넘겨줄 수 있음
 
-function logText(text: string | number) {
+// function logText(text: string | number) {
+//     console.log(text);
+//     return text;
+// }
+
+// const a = logText('a');
+// // a.split(''); // Property 'split' does not exist on type 'string | number'.
+// logText(10);
+
+// generic의 장점- 타입안정성 유지
+function logText<T>(text: T): T {
     console.log(text);
     return text;
 }
 
-const a = logText('a');
-// a.split(''); // Property 'split' does not exist on type 'string | number'.
-logText(10);
+const str = logText<string>('abc');
+str.split('');
+const login = logText<boolean>(true);
