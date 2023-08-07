@@ -62,3 +62,23 @@ var obj: StringRegexDictionary = {
 Object.keys(obj).forEach(function(value) {
 
 })
+
+// 인터페이스 확장
+// OOP의 상속, js의 프로토타입 
+interface Person {
+    name: string;
+    age: number;
+}
+
+// Developer에 중복되는 속성을 상속받아 사용 가능함 - name, age 속성 재정의 불필요
+interface Developer extends Person{
+    // name: string;
+    // age: number;
+    language: string;
+}
+
+var captain: Developer = {
+    name: '캡틴',
+    age: 34,
+    language: 'ts',
+}
