@@ -35,3 +35,10 @@ function askSomeone(someone: Developer | Person) {
     // someone.age;
 }
 
+// intersection type : 여러 타입을 모두 만족하는 하나의 타입
+function askSomeone2(someone: Developer & Person) {
+    someone.name;
+    someone.skill;
+    someone.age;
+}
+
