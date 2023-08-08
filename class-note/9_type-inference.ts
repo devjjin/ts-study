@@ -8,12 +8,31 @@ function getB(b = 10) { // return type - string 추론
 }
 
 // 타입 추론 기본 - 인터페이스
+// interface Dropdown<T> {
+//     value: T;
+//     title: string;
+// }
+// // 제네릭의 key에 들어간 타입을 추론 가능함
+// var shoppingItem: Dropdown<string> = {
+//     value: 'abc',
+//     title: 'hello',
+// }
+
+// 타입 추론 3 - 복잡한 구조(인터페이스 연결)
 interface Dropdown<T> {
     value: T;
     title: string;
 }
-// 제네릭의 key에 들어간 타입을 추론 가능함
-var shoppingItem: Dropdown<string> = {
-    value: 'abc',
-    title: 'hello',
+
+interface DetailedDropdown<K> extends Dropdown<K>{
+    description: string;
+    tag: K;
+}
+
+// 결론적으로 타입이 string으로 추론 가능
+var detailedItem: DetailedDropdown<string> = {
+    title: 'abc',
+    description :'ab',
+    value : 'a',
+    tag : 'a',
 }
