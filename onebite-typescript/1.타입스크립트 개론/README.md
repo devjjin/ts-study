@@ -87,3 +87,37 @@ https://stateofjs.com/en-us/
   - 타입 검사 성공시 AST-> 자바스크립트 코드로 변환
     - 이후 과정 일반 컴파일 과정과 같음
   <img src="image-10.png" width="350px" height="200px" alt="타입스크립트 동작 과정" />
+
+
+## 3. Hello TS
+### 타입스크립트 Hello World
+- /src/secion1 폴더 생성
+### Node.js 패키지 초기화
+ > npm init
+### @types/node 설치
+> npm i @types/node
+ - @types/node 라이브러리 : Node.js가 제공하는 기본 기능에 대한 타입 정보 가지고 있음
+ - 미설치시 console등 타입이 선언되지 않아 컴파일 과정에서 타입검사 실패하게 됨
+ - 패키지 설치시 node_modules폴더에 @types폴더 생성됨
+
+### 타입스크립트 컴파일러 설정
+  - 타입스크립트 컴파일러(TSC)
+    -  npm의 TypeScript 패키지에 동봉되어 있음
+  - 전역으로 typescript 패키지 설치
+  > sudo npm i -g typescript
+
+  - TSC 버전 확인
+  > tsc -v
+  // Version 4.9.5
+### 타입스크립트 실행
+
+#### 타입스크립트 파일 만들기
+ - /src/index.ts 파일 생성
+#### tsc로 컴파일하고 실행
+  > tsc src/index.ts
+  - 컴파일을 통해 index.js파일 생성됨
+  > node src/index.js
+  - 컴파일한 js파일 실행
+#### ts-node로 실행
+- 명령어 한번으로 타입스크립트 코드 바로 실행
+> sudo npm i -g ts-node
