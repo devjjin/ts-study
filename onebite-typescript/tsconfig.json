@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "outDir": "dist",
-		"moduleDetection": "force"
+    "target": "ESNext", // 변환되는 Js가 사용할 js 버전 설정
+    "module": "ESNext", // 모듈시스템 설정
+    "outDir": "dist", // 컴파일 결과 생성되는 js 어디에 저장할지
+    "strict": true, // 엄격
+    "moduleDetection": "force" // 자동으로 ts코드를 개별모드로 설정해줌
   },
-	"ts-node": {
-		"esm": true
-	},
-  "include": ["src"]
+  "ts-node": { // ts-node 패키지 사용하기 위해
+    "esm": true
+  },
+  "include": ["src"]  // tsc가 어떤 경로안에 파일을 컴파일할지
 }
