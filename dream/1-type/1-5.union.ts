@@ -15,32 +15,32 @@
 
     // 사용예제(실무에 많이씀)
     // function: login -> success, fail
-    type SuccessState = {
-        response: {
-            body: string;
-        }
-    }
-    type FailState = {
-        reason: string;
-    }
-    type LoginState = SuccessState | FailState;
-    function login(): LoginState {
-        return {
-            response: {
-                body: 'loggend in',
-            }
-        }
-    }
+    // type SuccessState = {
+    //     response: {
+    //         body: string;
+    //     }
+    // }
+    // type FailState = {
+    //     reason: string;
+    // }
+    // type LoginState = SuccessState | FailState;
+    // function login(): LoginState {
+    //     return {
+    //         response: {
+    //             body: 'loggend in',
+    //         }
+    //     }
+    // }
 
-    // quiz
-    // 로그인하고 나서 받은 state출력
-    // 성공하면 success, 실패하면 fail 출력하는 기능 만들어보자
-    function printLoginState(state: LoginState) {
-        // 💩
-        if('response' in state) {
-            console.log(`🎉${state.response.body}`);
-        } else { 
-            console.log(`🎉${state.reason}`);
-        }
-    }
+    // // quiz
+    // // 로그인하고 나서 받은 state출력
+    // // 성공하면 success, 실패하면 fail 출력하는 기능 만들어보자
+    // function printLoginState(state: LoginState) {
+    //     // 💩
+    //     if('response' in state) {
+    //         console.log(`🎉${state.response.body}`);
+    //     } else { 
+    //         console.log(`😂${state.reason}`);
+    //     }
+    // }
 }
