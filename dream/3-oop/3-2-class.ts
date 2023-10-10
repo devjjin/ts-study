@@ -3,24 +3,28 @@
         shots: number;
         hasMilk: boolean;
     };
-    const BEANS_GRAMM_PER_SHOT: number = 7;
-    
-    let coffeeBeans: number = 0;
+    class CoffeeMaker {
+        BEANS_GRAMM_PER_SHOT: number = 7;
+        coffeeBeans: number = 0;
 
-    // 샷에 따라 커피를 만들어주는 함수
-    function makeCoffee(shots: number): CoffeeCup {
-        // 우리가 가지고 있는 커피콩의 양의 샷의 숫자와 BEANS_GRAMM_PER_SHOT의 곱보다 작으면 error
-        if(coffeeBeans < shots * BEANS_GRAMM_PER_SHOT) {
-            throw new Error('Not enough coffe beans!');
+        constructor(coffeeBeans: number) {
+            this.coffeeBeans = coffeeBeans;
         }
-        coffeeBeans -= shots * BEANS_GRAMM_PER_SHOT; 
-        return {
-            shots,
-            hasMilk: false,
-        };
-    }
 
-    coffeeBeans += 3 * BEANS_GRAMM_PER_SHOT;
-    const coffee = makeCoffee(2);
-    console.log(coffee);    // { shots: 2, hasMilk: false }
+        makeCoffee(shots: number): CoffeeCup {
+            if(this.coffeeBeans < shots * this.BEANS_GRAMM_PER_SHOT) {
+                throw new Error('Not enough coffe beans!');
+            }
+            this.coffeeBeans -= shots * this.BEANS_GRAMM_PER_SHOT; 
+            return {
+                shots,
+                hasMilk: false,
+            };
+        }
+    }
+    
+    const maker = new CoffeeMaker(32); 
+    const maker2 = new CoffeeMaker(14); 
+    console.log(maker);
+    console.log(maker2);
 }
