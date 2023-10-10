@@ -4,18 +4,22 @@
         hasMilk: boolean;
     };
     class CoffeeMaker {
-        BEANS_GRAMM_PER_SHOT: number = 7;
+        static BEANS_GRAMM_PER_SHOT: number = 7;
         coffeeBeans: number = 0;
 
         constructor(coffeeBeans: number) {
             this.coffeeBeans = coffeeBeans;
         }
 
+        static makeMachine(coffeeBeans: number) : CoffeeMaker {
+            return new CoffeeMaker(coffeeBeans);
+        }
+
         makeCoffee(shots: number): CoffeeCup {
-            if(this.coffeeBeans < shots * this.BEANS_GRAMM_PER_SHOT) {
+            if(this.coffeeBeans < shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT) {
                 throw new Error('Not enough coffe beans!');
             }
-            this.coffeeBeans -= shots * this.BEANS_GRAMM_PER_SHOT; 
+            this.coffeeBeans -= shots * CoffeeMaker.BEANS_GRAMM_PER_SHOT; 
             return {
                 shots,
                 hasMilk: false,
@@ -24,7 +28,10 @@
     }
     
     const maker = new CoffeeMaker(32); 
-    const maker2 = new CoffeeMaker(14); 
     console.log(maker);
+    const maker2 = new CoffeeMaker(14); 
     console.log(maker2);
+
+    // static 붙여주면 외부에서도 instance 만들지 않고 접근 가능
+    const maker3 = CoffeeMaker.makeMachine(3);
 }
